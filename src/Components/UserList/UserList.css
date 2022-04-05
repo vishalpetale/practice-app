@@ -1,0 +1,8 @@
+.list {
+  width: 600px;
+  max-width: 90%;
+  margin: 2rem auto;
+}
+.user-list {
+  list-style: none;
+}

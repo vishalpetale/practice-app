@@ -1,0 +1,37 @@
+.input {
+  width: 600px;
+  max-width: 90%;
+  margin: 2rem auto;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.input-form label {
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+.input-form input {
+  font-size: 1.1rem;
+  padding: 0.15rem;
+  outline: none;
+}
+.input-form input:focus {
+  outline: none;
+  border: 1px solid rgb(35, 6, 63);
+}
+.btn {
+  width: fit-content;
+
+  font-family: inherit;
+  font-size: 1.1rem;
+
+  padding: 0.35rem 0.75rem;
+  border: none;
+  background-color: rgb(35, 6, 63);
+  color: #ddd;
+
+  cursor: pointer;
+}

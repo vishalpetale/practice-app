@@ -1,0 +1,21 @@
+.btn {
+  width: fit-content;
+
+  font-family: inherit;
+  font-size: 1.1rem;
+
+  padding: 0.35rem 0.75rem;
+  border: none;
+  background-color: rgb(35, 6, 63);
+  color: #ddd;
+
+  cursor: pointer;
+}
+.btn:hover,
+.btn:active {
+  background-color: rgb(58, 9, 104);
+  border: none;
+}
+.btn:focus {
+  outline: none;
+}
