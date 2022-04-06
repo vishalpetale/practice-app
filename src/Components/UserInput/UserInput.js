@@ -7,8 +7,7 @@ import Button from "../UI/Button";
 function UserInput(props) {
   const [userName, setUserName] = useState("");
   const [userAge, setUserAge] = useState("");
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalMsg, setModalmsg] = useState("");
+  const [errorModal, setErrorModal] = useState();
 
   const handleUserNameChange = (e) => {
     setUserName(e.target.value);
@@ -27,13 +26,19 @@ function UserInput(props) {
     e.preventDefault();
 
     if (userName.trim().length === 0 || userAge.trim().length === 0) {
-      setModalmsg("Please enter a valid name and age.(non empty values)");
-      setModalOpen(true);
+      setErrorModal({
+        title: "Invalid Input",
+        message: "Please enter a valid name and age.(non empty values)",
+      });
+      setUserName("");
       return;
     }
     if (+userAge < 0) {
-      setModalmsg("Please enter a valid age (>0)");
-      setModalOpen(true);
+      setErrorModal({
+        title: "Invalid Age",
+        message: "Please enter a valid age (>0)",
+      });
+
       setUserAge("");
       return;
     }
@@ -42,6 +47,10 @@ function UserInput(props) {
 
     const user = { userName, userAge };
     props.onAddUser(user);
+  };
+
+  const handleCloseErrorModal = () => {
+    setErrorModal(null);
   };
 
   return (
@@ -67,11 +76,13 @@ function UserInput(props) {
 
           <Button type="submit">Add User</Button>
         </form>
-        <Modal
-          modalOpen={modalOpen}
-          onChangeModal={setModalOpen}
-          msg={modalMsg}
-        />
+        {errorModal && (
+          <Modal
+            title={errorModal.title}
+            message={errorModal.message}
+            onCloseModal={handleCloseErrorModal}
+          />
+        )}
       </Card>
     </div>
   );

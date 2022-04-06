@@ -8,7 +8,9 @@ function UserItem(props) {
 
   return (
     <li className="user-item">
-      {props.name} ({props.age} years old)
+      <div>
+        <span className="user-name">{props.name}</span> ({props.age} years old)
+      </div>
       <span
         className="user-item-cross"
         id={props.id}

@@ -4,21 +4,24 @@ import Button from "../UI/Button";
 
 function Modal(props) {
   const handleModalClick = () => {
-    props.onChangeModal(false);
+    props.onCloseModal();
   };
 
   return (
     <div>
-      <div
-        className={`overlay ${props.modalOpen || "hidden"}`}
-        onClick={handleModalClick}
-      />
-      <div className={`modal ${props.modalOpen || "hidden"}`}>
-        <h3 className="modal-title">Invalid Input</h3>
-        <p className="modal-msg">{props.msg}</p>
-        <Button className="btn-modal" onClick={handleModalClick}>
-          Okay
-        </Button>
+      <div className="overlay" onClick={handleModalClick} />
+      <div className="modal">
+        <header>
+          <h3 className="modal-title">{props.title}</h3>
+        </header>
+        <div>
+          <p className="modal-msg">{props.message}</p>
+        </div>
+        <footer>
+          <Button className="btn-modal" onClick={handleModalClick}>
+            Okay
+          </Button>
+        </footer>
       </div>
     </div>
   );
