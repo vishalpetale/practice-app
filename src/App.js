@@ -17,10 +17,10 @@ function App() {
   };
 
   return (
-    <div>
+    <>
       <UserInput onAddUser={handleAddUser} />
       <UserList users={users} onDeleteUser={handleDeleteUser} />
-    </div>
+    </>
   );
 }
 export default App;
